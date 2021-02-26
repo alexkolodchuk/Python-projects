@@ -1,0 +1,66 @@
+# Так, здесь мы с тобой проходим по всем пунктам становления разработчиком в Yandex.
+except FileNotFoundError:
+    print("/------------------------------------ Приветствую тебя! Я - голосовой помощник Уитли. --------------------------------------\\")
+    print("|                                                                                                                              |")
+    print("|                              Для работы со мной тебе нужно выполнить несколько шагов:                                        |")
+    print("|                                                                                                                              |")
+    print("| 1. Тебе нужен аккаунт Яндекса. Перейди на console.cloud.yandex.ru и сделай пробный период 60 дней.                           |")
+    print("| 2. Нажми на default -> слева \"Сервисные аккаунты\" -> Создать сервисный аккаунт. Добавь всё, что только можно.                |")
+    os.startfile(r'C:\WINDOWS\system32\cmd.exe')
+    print("| 3. В cmd вставь следующую строку для установки оболочки YC в Windows:                                                        |")
+    print("|                                                                                                                              |")
+    print("@\"%SystemRoot%\System32\WindowsPowerShell\\v1.0\powershell.exe\" -Command \"iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))\" && SET \"PATH=%PATH%;%USERPROFILE%\\yandex-cloud\\bin\"")
+    print("| Строка скопирована в буфер обмена.                                                                                           |")
+    pyperclip.copy("@\"%SystemRoot%\System32\WindowsPowerShell\\v1.0\powershell.exe\" -Command \"iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))\" && SET \"PATH=%PATH%;%USERPROFILE%\\yandex-cloud\\bin\"")
+    jj = input("| Нажмите Enter для продолжения.                                                                                               |")
+    print("|                                                                                                                              |")
+    print("|   После этого вам предложат добавить yc в PATH. Пишите \"Y\". После перезапусти cmd.                                           |")
+    print("| 4. Введи yc init, затем 1, затем переходи по ссылке, выданной в cmd и выданный токен вставляй сюда (не закрывай cmd):        |")
+    token = input("| > ")
+    tks = create_token(token)
+    IAM_TOKEN = tks[0]
+    expiration_date = tks[1]
+    print("|                                                                                                                              |")
+    print("| Это ещё не всё.                                                                                                              |")
+    print("| 5. Вставь токен в cmd, потом пиши 1, Y, 1, (если предлагает обновиться, вставь это: yc components update                     |")
+    print("|  Потом напиши:                                                                                                               |")
+    print("|                                                                                                                              |")
+    print("|  yc config list                                                                                                              |")
+    print("|                                                                                                                              |")
+    print("| 6. Скопируй и вставь сюда значение folder-id:                                                                                |")
+    ID_FOLDER = input("| > ")
+    print("|                                                                                                                              |")
+    f=open("tokens.txt", mode="w", encoding="utf-16-le")
+    f.write("IAM_TOKEN : "+IAM_TOKEN+" : "+expiration_date+"\n")
+    f.write("ID_FOLDER : "+ID_FOLDER+"\n")
+    f.close()
+
+
+# Смотри, есть одна деталь.
+# Разработчики для своих приложений получают специальные токены для работы.
+# Токена хватает на 12 часов. Я постарался максимально всё автоматизировать, но всё равно ты хозяин своего компа.
+except (KeyError, IndexError) as TokenErrors:
+    print("/------------------------------------------------ ДЕЙСТВИЕ ТОКЕНА КОНЧИЛОСЬ ---------------------------------------------------\\")
+    print("|                                                                                                                              |")
+    print("| Упс! Действие токена YANDEX API кончилось. Токена хватает на 12 часов, к сведению. Вот что надо сделать:                     |")
+    print("|                                                                                                                              |")
+    print("| 1. Введи yc init, затем 1, затем переходи по ссылке, выданной в cmd и выданный токен вставляй сюда (не закрывай cmd):        |")
+    os.startfile(r'C:\WINDOWS\system32\cmd.exe')
+    token = input("| > ")
+    tks = create_token(token)
+    IAM_TOKEN = tks[0]
+    expiration_date = tks[1]
+    print("|                                                                                                                              |")
+    print("| Это ещё не всё.                                                                                                              |")
+    print("| 3. Вставь токен в cmd, потом пиши 1, Y, 1, (если предлагает обновиться, вставь это: yc components update                     |")
+    print("|  Потом напиши:                                                                                                               |")
+    print("|                                                                                                                              |")
+    print("|  yc config list                                                                                                              |")
+    print("|                                                                                                                              |")
+    print("| 4. Скопируй и вставь сюда значение folder-id:                                                                                |")
+    ID_FOLDER = input("| > ")
+    print("|                                                                                                                              |")
+    f=open("tokens.txt", mode="w", encoding="utf-16-le")
+    f.write("IAM_TOKEN : "+IAM_TOKEN+" : "+expiration_date+"\n")
+    f.write("ID_FOLDER : "+ID_FOLDER+"\n")
+    f.close()
