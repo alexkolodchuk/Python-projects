@@ -3,8 +3,12 @@
 В этом репозитории находятся все мои небольшие проекты на Python 2, 3.
 
 Для работы с программами необходим Python 3, лучше всего использовать 3.8.6.
-Необходим pip установленный последней версии, далее нужно ввести следующую команду:
+Далее нужно ввести следующие команды:
+
+pip install --upgrade pip
+
 pip install altgraph beautifulsoup4 certifi chardet click configobj configparser decorator et-xmlfile future httplib2 idna jdcal keyboard lxml networkx nibabel numpy opencv-python openpyxl packaging pandas pefile Pillow pip pyinstaller pyinstaller-hooks-contrib PyMuPDF pyparsing PyPDF2 python-dateutil python-vlc pytz pywin32-ctypes pyxnat requests scipy setuptools six smtp soupsieve urllib3 wheel
+
 pip3 install altgraph beautifulsoup4 certifi chardet click configobj configparser decorator et-xmlfile future httplib2 idna jdcal keyboard lxml networkx nibabel numpy opencv-python openpyxl packaging pandas pefile Pillow pip pyinstaller pyinstaller-hooks-contrib PyMuPDF pyparsing PyPDF2 python-dateutil python-vlc pytz pywin32-ctypes pyxnat requests scipy setuptools six smtp soupsieve urllib3 wheel
 Если какие-то модули не установились, то нужен пакет установщика. Пакеты тоже находятся в репозитории.
 
